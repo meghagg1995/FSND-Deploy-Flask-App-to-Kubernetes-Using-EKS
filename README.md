@@ -7,6 +7,9 @@ In this project you will containerize and deploy a Flask API to a Kubernetes clu
 The Flask app that will be used for this project consists of a simple API with three endpoints:
 
 - `GET '/'`: This is a simple health check, which returns the response 'Healthy'.
+```
+curl --request GET 'ae6b2aedcc8534d60b16c4619addc2d3-245461657.us-west-2.elb.amazonaws.com:80/' 
+```
 - `POST '/auth'`: This takes a email and password as json arguments and returns a JWT based on a custom secret.
 ```
 export TOKEN=`curl -d '{"email":"<EMAIL>","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST ae6b2aedcc8534d60b16c4619addc2d3-245461657.us-west-2.elb.amazonaws.com:80/auth  | jq -r '.token'`
